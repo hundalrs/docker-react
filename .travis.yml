@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t hundalrs/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run hundalrs/docker-react npm run test -- --coverage
